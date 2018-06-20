@@ -1,0 +1,11 @@
+[Unit]
+  Description=Kafka Service
+
+[Service]
+  Environment=LOG_DIR=/var/log/kafka
+  User=kafka
+  Group=kafka
+  ExecStart=/usr/lib/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
+
+[Install]
+  WantedBy=default.target

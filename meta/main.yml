@@ -1,3 +1,26 @@
----
+galaxy_info:
+  author: Martin Westergaard Lassen
+  description: Kafka role specifically designed for Humio
+  company: Humio
+
+  license: Apache
+
+  min_ansible_version: 1.2
+
+  # platforms:
+  # - name: Fedora
+  #   versions:
+  #   - all
+  #   - 25
+  # - name: SomePlatform
+  #   versions:
+  #   - all
+  #   - 1.0
+  #   - 7
+  #   - 99.99
+
+  galaxy_tags:
+  - kafka
+
 dependencies:
-  - role: kafka-base
+  - role: humio.ansible-java
