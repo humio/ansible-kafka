@@ -1,7 +1,7 @@
-Role Name
+humio.kafka
 =========
 
-A brief description of the role goes here.
+Kafka installer for running together with Humio
 
 Requirements
 ------------
@@ -36,9 +36,9 @@ Including an example of how to use your role (for instance, with variables passe
 - hosts: servers
   become: true
   vars:
-	zookeeper_hosts:
-	  - zookeeper_id: 1
-	    ip: "{{ ansible_default_ipv4.address }}"
+    zookeeper_hosts:
+      - zookeeper_id: 1
+        ip: "{{ ansible_default_ipv4.address }}"
   roles:
     - role: humio.java
     - role: AnsibleShipyard.ansible-zookeeper
