@@ -25,7 +25,7 @@ zookeeper_hosts:
 Dependencies
 ------------
 
-Java 9 must be installed. [humio.ansible-java](https://github.com/humio/ansible-java) module is recommended
+Java 9 must be installed. [humio.java](https://galaxy.ansible.com/humio/java/) role is recommended
 
 Example Playbook
 ----------------
@@ -40,9 +40,9 @@ Including an example of how to use your role (for instance, with variables passe
 	  - zookeeper_id: 1
 	    ip: "{{ ansible_default_ipv4.address }}"
   roles:
-    - role: humio.ansible-java
+    - role: humio.java
     - role: AnsibleShipyard.ansible-zookeeper
-    - role: humio.ansible-kafka
+    - role: humio.kafka
 ```
 
 License

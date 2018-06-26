@@ -16,4 +16,4 @@ galaxy_info:
   - kafka
 
 dependencies:
-  - role: humio.ansible-java
+  - role: humio.java
