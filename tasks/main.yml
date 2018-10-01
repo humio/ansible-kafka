@@ -5,15 +5,14 @@
 - name: Install Kafka
   unarchive:
     src: "{{ kafka_mirror }}/{{ kafka_version }}/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
-    dest: /usr/lib/
+    dest: "/usr/lib/"
     remote_src: yes
 
 - name: Link kafka
   file:
     src: "/usr/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
-    dest: /usr/lib/kafka
+    dest: "/usr/lib/kafka"
     state: link
-    owner: kafka
   notify: Restart Kafka
 
 - name: Create config directories
