@@ -1,9 +1,13 @@
 ---
+kafka_scala_version: 2.12
+kafka_version: 1.0.1
+
 kafka_mirror: http://mirrors.ae-online.de/apache/kafka
 kafka_listeners:
 - scheme: "PLAINTEXT"
   host: "{{ ansible_default_ipv4.address }}"
   port: 9092
 kafka_broker_id: 0
+kafka_log_dirs: "/var/kafka/data"
 zookeeper_hosts:
 - ip: "{{ ansible_default_ipv4.address }}"

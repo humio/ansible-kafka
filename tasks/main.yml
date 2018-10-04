@@ -29,7 +29,7 @@
 
 - name: Create data directories
   file:
-    path: "/var/kafka/data"
+    path: "{{ kafka_log_dirs }}"
     state: directory
     owner: kafka
     group: kafka
