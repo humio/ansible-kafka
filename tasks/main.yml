@@ -2,11 +2,18 @@
 - group: name=kafka system=true
 - user: name=kafka group=kafka system=true
 
-- name: Install Kafka
+- name: Install Kafka from remote
   unarchive:
     src: "{{ kafka_mirror }}/{{ kafka_version }}/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
     dest: "/usr/lib/"
     remote_src: yes
+  when: kafka_mirror != 'master'
+
+- name: Install Kafka from master
+  unarchive:
+    src: "kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
+    dest: "/usr/lib/"
+  when: kafka_mirror == 'master'
 
 - name: Link kafka
   file:
