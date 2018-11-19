@@ -26,6 +26,7 @@
   file:
     path: "/etc/kafka"
     state: directory
+    mode: 0755
 
 - name: Create log directories
   file:
@@ -33,6 +34,7 @@
     state: directory
     owner: kafka
     group: kafka
+    mode: 0750
 
 - name: Create data directories
   file:
@@ -40,17 +42,20 @@
     state: directory
     owner: kafka
     group: kafka
+    mode: 0750
 
 - name: Kafka configuration
   template:
     src: "server.properties.j2"
     dest: /etc/kafka/server.properties
+    mode: 0644
   notify: Restart Kafka
 
 - name: Create Kafka SystemD unit configuration
   template:
     src: "kafka.service.j2"
     dest: /etc/systemd/system/kafka.service
+    mode: 0644
   notify: Restart Kafka
 
 - name: Enable Kafka Service
