@@ -2,6 +2,11 @@
 - group: name=kafka system=true
 - user: name=kafka group=kafka system=true
 
+- name: install numactl
+  apt:
+    name: numactl
+    state: present
+
 - name: Install Kafka from remote
   unarchive:
     src: "{{ kafka_mirror }}/{{ kafka_version }}/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
