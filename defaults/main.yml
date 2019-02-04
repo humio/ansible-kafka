@@ -1,6 +1,6 @@
 ---
 kafka_scala_version: 2.12
-kafka_version: 2.0.1
+kafka_version: 2.1.0
 
 kafka_mirror: http://mirrors.ae-online.de/apache/kafka
 kafka_listeners:
