@@ -2,7 +2,9 @@
   Description=Kafka Service
 
 [Service]
-  Environment=LOG_DIR=/var/log/kafka
+  Environment="LOG_DIR=/var/log/kafka"
+  Environment="GC_LOG_ENABLED=true"
+  Environment="KAFKA_HEAP_OPTS=-Xms512M -Xmx4G"
   User=kafka
   Group=kafka
   ExecStart=/usr/bin/numactl --cpunodebind=0 --membind=0 /usr/lib/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
