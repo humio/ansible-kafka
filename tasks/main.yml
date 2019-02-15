@@ -33,6 +33,12 @@
     state: directory
     mode: 0755
 
+- name: Create Filebeat config directories
+  file:
+    path: "/etc/kafka/filebeat"
+    state: directory
+    mode: 0755
+
 - name: Create log directories
   file:
     path: "/var/log/kafka"
@@ -62,6 +68,15 @@
     dest: /etc/systemd/system/kafka.service
     mode: 0644
   notify: Restart Kafka
+
+- name: Kafka Filebeat specific configuration
+  template:
+    src: filebeat.yml.j2
+    dest: /etc/kafka/filebeat/humio.yml
+    mode: 0644
+    owner: root
+    group: root
+
 
 - name: Enable Kafka Service
   service:

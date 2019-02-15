@@ -1,0 +1,23 @@
+---
+- type: log
+  paths:
+  - /var/log/kafka/server.log
+  fields:
+    "@type": 'kafka'
+    {% for field in kafka_filebeat_fields|dict2items -%}
+    '{{ field.key }}': '{{ field.value }}'
+    {% endfor -%}
+    '@tags': {{ kafka_filebeat_default_tags + kafka_filebeat_tags  }}
+  multiline:
+    pattern: '^\[[0-9]{4}-[0-9]{2}-[0-9]{2}'
+    negate: true
+    match: after
+- type: log
+  paths:
+  - /var/log/kafka/kafkaServer-gc.log
+  fields:
+    "@type": 'kafka-gc'
+    {% for field in kafka_filebeat_fields|dict2items -%}
+    '{{ field.key }}': '{{ field.value }}'
+    {% endfor -%}
+    '@tags': {{ kafka_filebeat_default_tags + kafka_filebeat_tags  }}

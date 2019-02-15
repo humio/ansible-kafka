@@ -9,5 +9,9 @@ kafka_listeners:
   port: 9092
 kafka_broker_id: 0
 kafka_log_dirs: "/var/kafka/data"
+
+kafka_filebeat_fields: {}
+kafka_filebeat_tags: []
+
 zookeeper_hosts:
 - ip: "{{ ansible_default_ipv4.address }}"

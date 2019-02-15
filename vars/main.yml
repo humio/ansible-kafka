@@ -1,0 +1,5 @@
+---
+
+kafka_filebeat_default_tags:
+  - "@host"
+  - "@type"
