@@ -1,6 +1,8 @@
 ---
-- group: name=kafka system=true
-- user: name=kafka group=kafka system=true
+- name: create kafka group
+  group: name=kafka system=true
+- name: create kafka user
+  user: name=kafka group=kafka system=true
 
 - name: install numactl
   apt:
