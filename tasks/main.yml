@@ -47,7 +47,7 @@
     state: directory
     owner: kafka
     group: kafka
-    mode: 0750
+    mode: 0755
 
 - name: Create data directories
   file:
@@ -55,7 +55,7 @@
     state: directory
     owner: kafka
     group: kafka
-    mode: 0750
+    mode: 0755
 
 - name: Kafka configuration
   template:
