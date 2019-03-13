@@ -20,4 +20,4 @@ galaxy_info:
 
 dependencies:
   - role: humio.java
-    version: 0.1
+    version: 0.1.0
