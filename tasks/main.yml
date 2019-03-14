@@ -27,6 +27,7 @@
     src: "/usr/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
     dest: "/usr/lib/kafka"
     state: link
+  when: not ansible_check_mode
   notify: Restart Kafka
 
 - name: Create config directories
@@ -40,6 +41,7 @@
     path: "/etc/kafka/filebeat"
     state: directory
     mode: 0755
+  check_mode: yes
 
 - name: Create log directories
   file:
@@ -48,6 +50,7 @@
     owner: kafka
     group: kafka
     mode: 0755
+  check_mode: yes
 
 - name: Create data directories
   file:
@@ -56,6 +59,7 @@
     owner: kafka
     group: kafka
     mode: 0755
+  check_mode: yes
 
 - name: Kafka configuration
   template:
