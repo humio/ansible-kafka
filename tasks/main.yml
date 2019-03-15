@@ -41,7 +41,7 @@
     path: "/etc/kafka/filebeat"
     state: directory
     mode: 0755
-  check_mode: yes
+  check_mode: no
 
 - name: Create log directories
   file:
@@ -50,7 +50,6 @@
     owner: kafka
     group: kafka
     mode: 0755
-  check_mode: yes
 
 - name: Create data directories
   file:
@@ -59,7 +58,6 @@
     owner: kafka
     group: kafka
     mode: 0755
-  check_mode: yes
 
 - name: Kafka configuration
   template:
