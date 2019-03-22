@@ -7,7 +7,7 @@
     {% for field in kafka_filebeat_fields|dict2items -%}
     '{{ field.key }}': '{{ field.value }}'
     {% endfor -%}
-    '@tags': {{ kafka_filebeat_default_tags + kafka_filebeat_tags  }}
+    '@tags': ['{{ (kafka_filebeat_default_tags + kafka_filebeat_tags) | list | join ('\', \'') }}']
   multiline:
     pattern: '^\[[0-9]{4}-[0-9]{2}-[0-9]{2}'
     negate: true
@@ -20,4 +20,4 @@
     {% for field in kafka_filebeat_fields|dict2items -%}
     '{{ field.key }}': '{{ field.value }}'
     {% endfor -%}
-    '@tags': {{ kafka_filebeat_default_tags + kafka_filebeat_tags  }}
+    '@tags': ['{{ (kafka_filebeat_default_tags + kafka_filebeat_tags) | list | join ('\', \'') }}']
