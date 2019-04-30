@@ -2,6 +2,7 @@
   Description=Kafka Service
 
 [Service]
+  Restart=on-abnormal
   Environment="LOG_DIR=/var/log/kafka"
   Environment="GC_LOG_ENABLED=true"
   Environment="KAFKA_HEAP_OPTS=-Xms512M -Xmx4G"
