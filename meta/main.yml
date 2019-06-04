@@ -13,7 +13,8 @@ galaxy_info:
     - 7
   - name: Ubuntu
     version:
-      - bionic
+    - xenial
+    - bionic
 
   galaxy_tags:
   - kafka
