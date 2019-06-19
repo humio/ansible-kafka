@@ -5,7 +5,7 @@
   user: name=kafka group=kafka system=true
 
 - name: install numactl
-  apt:
+  package:
     name: numactl
     state: present
 
