@@ -5,7 +5,7 @@ galaxy_info:
 
   license: Apache
 
-  min_ansible_version: 1.2
+  min_ansible_version: 2.6
 
   platforms:
   - name: EL
@@ -13,10 +13,12 @@ galaxy_info:
     - 7
   - name: Ubuntu
     version:
-      - bionic
+    - xenial
+    - bionic
 
   galaxy_tags:
   - kafka
+  - humio
 
 dependencies:
   - role: humio.java
