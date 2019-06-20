@@ -14,6 +14,7 @@
     src: "{{ kafka_mirror }}/{{ kafka_version }}/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
     dest: "/usr/lib/"
     remote_src: yes
+    creates: "/usr/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
   when: kafka_mirror != 'master'
 
 - name: Install Kafka from master
