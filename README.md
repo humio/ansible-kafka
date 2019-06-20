@@ -24,12 +24,6 @@ zookeeper_hosts:
 - ip: "{{ ansible_default_ipv4.address }}"
 ```
 
-On machines without internet access `kafka_mirror` can be set to `"master"` to copy the Kafka tarball from the master's files directory
-
-```yaml
-kafka_mirror: "master"
-```
-
 Dependencies
 ------------
 
