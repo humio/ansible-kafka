@@ -27,7 +27,7 @@ zookeeper_hosts:
 Dependencies
 ------------
 
-Java 9 must be installed. [humio.java](https://galaxy.ansible.com/humio/java/) role is recommended
+- [humio.java](https://galaxy.ansible.com/humio/java/) role
 
 Example Playbook
 ----------------

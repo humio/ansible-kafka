@@ -1,7 +1,7 @@
 ---
 - type: log
   paths:
-  - /var/log/kafka/server.log
+  - {{ kafka_log_dir }}/server.log
   fields:
     "@type": 'kafka'
     {% for field in kafka_filebeat_fields|dict2items -%}
@@ -14,7 +14,7 @@
     match: after
 - type: log
   paths:
-  - /var/log/kafka/kafkaServer-gc.log
+  - {{ kafka_log_dir }}/kafkaServer-gc.log
   fields:
     "@type": 'kafka-gc'
     {% for field in kafka_filebeat_fields|dict2items -%}

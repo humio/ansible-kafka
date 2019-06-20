@@ -25,20 +25,20 @@
 
 - name: Create config directories
   file:
-    path: "/etc/kafka"
+    path: "{{ kafka_conf_dir }}"
     state: directory
     mode: 0755
 
 - name: Create Filebeat config directories
   file:
-    path: "/etc/kafka/filebeat"
+    path: "{{ kafka_conf_dir }}/filebeat"
     state: directory
     mode: 0755
   check_mode: no
 
 - name: Create log directories
   file:
-    path: "/var/log/kafka"
+    path: "{{ kafka_log_dir }}"
     state: directory
     owner: kafka
     group: kafka
@@ -46,7 +46,7 @@
 
 - name: Create data directories
   file:
-    path: "{{ kafka_log_dirs }}"
+    path: "{{ kafka_data_dir }}"
     state: directory
     owner: kafka
     group: kafka
@@ -55,7 +55,7 @@
 - name: Kafka configuration
   template:
     src: "server.properties.j2"
-    dest: /etc/kafka/server.properties
+    dest: "{{ kafka_conf_dir }}/server.properties"
     mode: 0644
   notify: Restart Kafka
 
@@ -69,7 +69,7 @@
 - name: Kafka Filebeat specific configuration
   template:
     src: filebeat.yml.j2
-    dest: /etc/kafka/filebeat/humio.yml
+    dest: "{{ kafka_conf_dir }}/filebeat/humio.yml"
     mode: 0644
     owner: root
     group: root

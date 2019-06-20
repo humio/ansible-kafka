@@ -5,7 +5,12 @@ listeners={% for listener in kafka_listeners -%}{{ listener.scheme | default('PL
 replica.fetch.max.bytes=104857600
 message.max.bytes=104857600
 compression.type=producer
-log.dirs={{ kafka_log_dirs }}
+
+# log.dirs is actually where kafka stores its data.
+# they're append-only logs, hence the somewhat
+# confusing name
+log.dirs={{ kafka_data_dir }}
 log.retention.hours=48
 log.retention.check.interval.ms=300000
+
 unclean.leader.election.enable=false

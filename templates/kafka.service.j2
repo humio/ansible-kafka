@@ -4,7 +4,7 @@
 [Service]
   Restart=on-abnormal
   LimitNOFILE=800000
-  Environment="LOG_DIR=/var/log/kafka"
+  Environment="LOG_DIR={{ kafka_log_dir }}"
   Environment="GC_LOG_ENABLED=true"
   Environment="KAFKA_HEAP_OPTS=-Xms512M -Xmx4G"
   User=kafka
