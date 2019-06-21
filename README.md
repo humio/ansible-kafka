@@ -60,7 +60,7 @@ If you're forced to interrupt the ansible run during the `Install Kafka from rem
 where the tarball that's being fetched and unarchived was interrupted during the unarchive phase. If this step is
 interrupted while the tarball is still being fetched (e.g., a timeout), then you're fine to simply re-run the playbook
 again. If it happens during the unarchive phase, you will need to manually clear the
-`/usr/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}` directory before running the playbook again (this stage
+`/usr/local/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}` directory before running the playbook again (this stage
 checks for the existance of that directory to skip the step in future runs). 
 
 License

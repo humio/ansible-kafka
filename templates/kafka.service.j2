@@ -9,7 +9,7 @@
   Environment="KAFKA_HEAP_OPTS=-Xms512M -Xmx4G"
   User=kafka
   Group=kafka
-  ExecStart=/usr/bin/numactl --cpunodebind=0 --membind=0 /usr/lib/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
+  ExecStart=/usr/bin/numactl --cpunodebind=0 --membind=0 /usr/local/lib/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
 
 [Install]
   WantedBy=default.target

@@ -12,21 +12,21 @@
 - name: Install Kafka from remote
   unarchive:
     src: "{{ kafka_mirror }}/{{ kafka_version }}/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
-    dest: "/usr/lib/"
+    dest: "/usr/local/lib/"
     remote_src: yes
-    creates: "/usr/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
+    creates: "/usr/local/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
   when: kafka_mirror != 'master'
 
 - name: Install Kafka from master
   unarchive:
     src: "kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
-    dest: "/usr/lib/"
+    dest: "/usr/local/lib/"
   when: kafka_mirror == 'master'
 
 - name: Link kafka
   file:
-    src: "/usr/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
-    dest: "/usr/lib/kafka"
+    src: "/usr/local/lib/kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
+    dest: "/usr/local/lib/kafka"
     state: link
   when: not ansible_check_mode
   notify: Restart Kafka
