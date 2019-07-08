@@ -31,6 +31,16 @@
   when: not ansible_check_mode
   notify: Restart Kafka
 
+- name: Create tool links
+  file:
+    src: "/usr/local/lib/kafka/bin/{{ item }}.sh"
+    dest: "/usr/local/bin/{{ item }}"
+    state: link
+  loop:
+    - kafka-topics
+    - kafka-configs
+  when: not ansible_check_mode
+
 - name: Create config directories
   file:
     path: "/etc/kafka"
