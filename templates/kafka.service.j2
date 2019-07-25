@@ -2,7 +2,8 @@
   Description=Kafka Service
 
 [Service]
-  Restart=on-abnormal
+  Restart=on-failure
+  RestartSec=3
   LimitNOFILE=800000
   Environment="LOG_DIR=/var/log/kafka"
   Environment="GC_LOG_ENABLED=true"
