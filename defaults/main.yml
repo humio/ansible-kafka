@@ -8,6 +8,7 @@ kafka_listeners:
   host: "{{ ansible_default_ipv4.address }}"
   port: 9092
 kafka_broker_id: 0
+kafka_broker_rack: dc1
 kafka_log_dirs: "/var/kafka/data"
 
 kafka_filebeat_fields: {}

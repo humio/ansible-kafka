@@ -1,5 +1,6 @@
 #jinja2: trim_blocks:False
 broker.id={{ kafka_broker_id }}
+broker.rack={{ kafka_broker_rack }}
 zookeeper.connect={% for host in zookeeper_hosts -%}{{ host.ip }}:{{ host.port | default('2181') }}{% if not loop.last %},{% endif %}{%- endfor %}
 listeners={% for listener in kafka_listeners -%}{{ listener.scheme | default('PLAINTEXT') }}://{{ listener.host | default('') }}:{{ listener.port | default('9092') }}{% if not loop.last %}, {% endif %}{%- endfor %}
 replica.fetch.max.bytes=104857600
