@@ -20,6 +20,7 @@ kafka_listeners:
   host: "{{ ansible_default_ipv4.address }}"
   port: 9092
 kafka_broker_id: 0
+kafka_broker_rack: dc1
 zookeeper_hosts:
 - ip: "{{ ansible_default_ipv4.address }}"
 ```
@@ -29,6 +30,18 @@ On machines without internet access `kafka_mirror` can be set to `"master"` to c
 ```yaml
 kafka_mirror: "master"
 ```
+
+Rack Awareness
+------------
+
+Kafka supports rack awareness if you specify which rack each Kafka node is in. This can be done by
+setting the `broker.rack` setting in Kafka. This is configured in this Ansible role via the
+`kafka_broker_rack` variable. To have this work properly, make sure each rack or datacenter is
+defined as a group in your inventory and the appropriate machines are assigned. You can then either
+set the `kafka_broker_rack` variable directly inside the inventory or you can create a `group_vars`
+file for each of the rack/datacenter groups that defines it appropriately.
+
+By default, all Kafkas are assigned to a single rack named `dc1`.
 
 Dependencies
 ------------
