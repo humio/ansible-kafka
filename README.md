@@ -41,6 +41,8 @@ defined as a group in your inventory and the appropriate machines are assigned. 
 set the `kafka_broker_rack` variable directly inside the inventory or you can create a `group_vars`
 file for each of the rack/datacenter groups that defines it appropriately.
 
+By default, all Kafkas are assigned to a single rack named `dc1`.
+
 Dependencies
 ------------
 
