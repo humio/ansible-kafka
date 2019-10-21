@@ -1,4 +1,10 @@
 ---
+- name: Create Ansible facts directory
+  file:
+    path: "/etc/ansible/facts.d"
+    state: "directory"
+  check_mode: no
+
 - name: NUMA node fact
   copy:
     content: |
