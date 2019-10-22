@@ -13,6 +13,8 @@
       for socket in $(/usr/bin/lscpu --all --parse=node,socket | grep -E "[0-9]$" | cut -d, -f2 | sort | uniq); do
         echo "[$socket]"
         echo "nodes="$(/usr/bin/lscpu --all --parse=node,socket | grep -E "${socket}$" | cut -d, -f1 | sort -n | uniq | paste -sd ',' -)
+        echo "nodes="$(/usr/bin/lscpu --all --parse=node,socket | grep -E "${socket}$" | cut -d, -f1 | sort -n |
+          uniq | paste -sd ',' -)
         echo
       done
     dest: "/etc/ansible/facts.d/numanodes.fact"
