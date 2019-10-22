@@ -1,4 +1,8 @@
 ---
+- name: recollect facts
+  setup: ~
+  listen: Collect facts
+
 - name: Restart Kafka SystemD service
   service:
     name: kafka
