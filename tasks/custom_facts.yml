@@ -20,3 +20,6 @@
     mode: "0755"
   check_mode: no
   notify: Collect facts
+
+- name: Force Kafka fact collection to happen immediately
+  meta: flush_handlers
