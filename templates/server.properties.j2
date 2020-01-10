@@ -10,3 +10,8 @@ log.dirs={{ kafka_log_dirs }}
 log.retention.hours=48
 log.retention.check.interval.ms=300000
 unclean.leader.election.enable=false
+
+# Official Kafka documentation states that when upgrading Kafka brokers, you must fix the inter.broker.protocol.version to the current/old version before upgrading the broker software. This way, all brokers in a cluster (being a mix of old and new broker software) will all communicate internally with the same protocol version. After all brokers have been upgraded to the new Kafka version, then inter.broker.protocol.version can be updated.
+# More info can be found here: https://kafka.apache.org/22/documentation.html#upgrade
+# Having this variable allows us to create playbooks where we can do the upgrade procedure described in the official Kafka documentation.
+inter.broker.protocol.version={{ kafka_inter_broker_protocol_version }}
