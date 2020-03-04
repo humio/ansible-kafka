@@ -10,7 +10,17 @@ kafka_listeners:
   port: 9092
 kafka_broker_id: 0
 kafka_broker_rack: dc1
+
+# legacy variable used to specify data directory. use kafka_data_log_dir instead.
 kafka_log_dirs: "/var/kafka/data"
+
+# this is the data directory. it's defaulting to kafka_log_dirs to maintain compatibility with
+# older versions. this name change is being done to improve clarity.
+kafka_data_log_dir: "{{ kafka_log_dirs }}"
+
+# this is the service log directory (not to be confused with the data log directory specified above).
+kafka_log_dir: "/var/log/kafka"
+
 kafka_jmx_opts: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false "
 
 kafka_filebeat_fields: {}

@@ -6,7 +6,11 @@ listeners={% for listener in kafka_listeners -%}{{ listener.scheme | default('PL
 replica.fetch.max.bytes=104857600
 message.max.bytes=104857600
 compression.type=producer
-log.dirs={{ kafka_log_dirs }}
+
+# This is the data directory. The service log directory is specified
+# in the systemd unit file.
+log.dirs={{ kafka_data_log_dir }}
+
 log.retention.hours=48
 log.retention.check.interval.ms=300000
 unclean.leader.election.enable=false
