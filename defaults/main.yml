@@ -3,7 +3,7 @@ kafka_scala_version: 2.12
 kafka_version: 2.1.1
 kafka_inter_broker_protocol_version: 2.1
 
-kafka_mirror: http://mirrors.ae-online.de/apache/kafka
+kafka_mirror: https://archive.apache.org/dist/kafka/ 
 kafka_listeners:
 - scheme: "PLAINTEXT"
   host: "{{ ansible_default_ipv4.address }}"
