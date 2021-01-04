@@ -13,19 +13,9 @@ This role must have access to an installation of Zookeeper
 Role Variables
 --------------
 
-```yaml
-kafka_mirror: http://mirrors.ae-online.de/apache/kafka
-kafka_listeners:
-- scheme: "PLAINTEXT"
-  host: "{{ ansible_default_ipv4.address }}"
-  port: 9092
-kafka_broker_id: 0
-kafka_broker_rack: dc1
-zookeeper_hosts:
-- ip: "{{ ansible_default_ipv4.address }}"
-```
+See the [defaults](https://github.com/humio/ansible-kafka/blob/master/defaults/main.yml).
 
-On machines without internet access `kafka_mirror` can be set to `"master"` to copy the Kafka tarball from the master's files directory
+On machines without internet access the `kafka_mirror` variable can be set to `"master"` to copy the Kafka tarball from the master's files directory
 
 ```yaml
 kafka_mirror: "master"
