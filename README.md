@@ -79,4 +79,4 @@ checks for the existance of that directory to skip the step in future runs).
 License
 -------
 
-Apache
+Apache 2.0
