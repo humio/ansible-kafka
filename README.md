@@ -1,5 +1,3 @@
-[![Build Status](https://cloud.drone.io/api/badges/humio/ansible-kafka/status.svg)](https://cloud.drone.io/humio/ansible-kafka)
-
 humio.kafka
 =========
 
