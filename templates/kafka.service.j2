@@ -10,6 +10,7 @@
   Environment="KAFKA_HEAP_OPTS=-Xms512M -Xmx4G"
   Environment="NUMA_NODES={{ ansible_local.kafka_numanodes["0"].nodes }}"
   Environment="KAFKA_JMX_OPTS={{ kafka_jmx_opts }}"
+  Environment="KAFKA_OPTS={{ kafka_opts }}"
   User=kafka
   Group=kafka
   ExecStart=/usr/bin/numactl --cpunodebind=${NUMA_NODES} --membind=${NUMA_NODES} /usr/lib/kafka/bin/kafka-server-start.sh /etc/kafka/server.properties
