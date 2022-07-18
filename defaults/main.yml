@@ -17,5 +17,7 @@ kafka_opts: "-Djava.rmi.server.useCodebaseOnly=true -Dcom.sun.jndi.ldap.object.t
 kafka_filebeat_fields: {}
 kafka_filebeat_tags: []
 
+kafka_xmx: "{{ ansible_memtotal_mb|int - 1500 | int }}M"
+
 zookeeper_hosts:
 - ip: "{{ ansible_default_ipv4.address }}"
