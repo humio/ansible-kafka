@@ -69,6 +69,14 @@
     mode: 0644
   notify: Restart Kafka
 
+- name: Kafka log4j configuration
+  template:
+    src: "log4j.properties.j2"
+    dest: /etc/kafka/log4j.properties
+    mode: 0644
+  notify: Restart Kafka
+
+
 - name: Create Kafka SystemD unit configuration
   template:
     src: "kafka.service.j2"
