@@ -12,10 +12,13 @@ kafka_broker_id: 0
 kafka_broker_rack: dc1
 kafka_log_dirs: "/var/kafka/data"
 kafka_jmx_opts: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false "
-kafka_opts: "-Djava.rmi.server.useCodebaseOnly=true -Dcom.sun.jndi.ldap.object.trustURLCodebase=false -Dcom.sun.jndi.cosnaming.object.trustURLCodebase=false"
+kafka_opts: "-Djava.rmi.server.useCodebaseOnly=true -Dcom.sun.jndi.ldap.object.trustURLCodebase=false -Dcom.sun.jndi.cosnaming.object.trustURLCodebase=false -Dlog4j.configuration=file:/etc/kafka/log4j.properties"
 
 kafka_filebeat_fields: {}
 kafka_filebeat_tags: []
+
+kafka_xmx: "{{ ansible_memtotal_mb|int * 0.85|  round(0) | int  }}M"
+
 
 zookeeper_hosts:
 - ip: "{{ ansible_default_ipv4.address }}"
